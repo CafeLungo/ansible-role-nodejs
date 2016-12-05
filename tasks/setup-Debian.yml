@@ -1,6 +1,9 @@
 ---
-- name: Add Nodesource apt key.
-  command: "apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 68576280"
+- name: Add nodesource apt key.
+  apt_key:
+    url: https://keyserver.ubuntu.com/pks/lookup?op=get&fingerprint=on&search=0x1655A0AB68576280
+    id: "68576280"
+    state: present
 
 - name: Add NodeSource repositories for Node.js.
   apt_repository:
